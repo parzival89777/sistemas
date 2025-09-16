@@ -74,10 +74,11 @@ int main() {
 ```
 
 3) **Esquematico de conexion:**
-![Esquema de conexión](T4.png)
+![Esquema de conexión](T5E1.png)
 
 4) **Muestras de la medicón**
-
+![Esquema de conexión](T5E1-1.png)
+![Esquema de conexión](T5E1-2.png)
 5) **Video:**
 
 [Video en youtube](https://youtube.com/shorts/lCiT8hK5L0s)
@@ -152,10 +153,11 @@ int main() {
 ```
 
 3) **Esquematico de conexion:**
-![Esquema de conexión](T4.png)
+![Esquema de conexión](T5E1.png)
 
 4) **Muestras de la medicón**
-
+![Esquema de conexión](T5E2-1.png)
+![Esquema de conexión](T5E2-2.png)
 
 5) **Video:**
 
