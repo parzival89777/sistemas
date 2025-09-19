@@ -72,16 +72,20 @@ int main() {
     }
 }
 ```
+3) **Parametros**
 
-3) **Esquematico de conexion:**
+- _2 Volts_
+
+- _Zoom factor 2x_
+
+- _Cursores △t = 0.003s_
+
+4) **Esquematico de conexion:**
 ![Esquema de conexión](T5E1.png)
 
-4) **Muestras de la medicón**
+5) **Muestras de la medicón**
 ![Esquema de conexión](T5E1-1.png)
 ![Esquema de conexión](T5E1-2.png)
-5) **Video:**
-
-[Video en youtube](https://youtube.com/shorts/lCiT8hK5L0s)
 
 ### **(Ejercicio 2) Comparar jitter/precisión con osciloscopio: modo µs vs modo ciclos**
 
@@ -152,13 +156,17 @@ int main() {
 }
 ```
 
-3) **Esquematico de conexion:**
+3) **Parametros**
+
+- _2 Volts_
+
+- _Zoom factor 2x_
+
+- _Cursores △t = 0.003s_
+
+4) **Esquematico de conexion:**
 ![Esquema de conexión](T5E1.png)
 
-4) **Muestras de la medicón**
+5) **Muestras de la medicón**
 ![Esquema de conexión](T5E2-1.png)
 ![Esquema de conexión](T5E2-2.png)
-
-5) **Video:**
-
-[Video en youtube](https://youtube.com/shorts/lCiT8hK5L0s)

@@ -16,25 +16,25 @@ _Se trara de un mini-Pong con 5 LEDs en línea y 2 botones usando interrupciones
 
 2) **Reglas del juego**
 
-1) Pelota: es un único LED encendido que se mueve automáticamente de un extremo al otro (L1→L5→L1…) a un ritmo fijo.
+1) _Pelota: es un único LED encendido que se mueve automáticamente de un extremo al otro (L1→L5→L1…) a un ritmo fijo._
 
-2) Golpe con ISR: cada botón genera una interrupción.
+2) _Golpe con ISR: cada botón genera una interrupción._
 
-* El BTN_L solo cuenta si, en el instante de la ISR, la pelota está en L1.
+* _El BTN_L solo cuenta si, en el instante de la ISR, la pelota está en L1._
 
-* El BTN_R solo cuenta si, en el instante de la ISR, la pelota está en L5.
+* _El BTN_R solo cuenta si, en el instante de la ISR, la pelota está en L5._
 
-* Si coincide, la pelota rebota: invierte su dirección.
+* _Si coincide, la pelota rebota: invierte su dirección._
 
-* Si no coincide (la pelota no está en el último LED de ese lado), el botón se ignora.
+* _Si no coincide (la pelota no está en el último LED de ese lado), el botón se ignora._
 
-3) Fallo y punto: si la pelota alcanza L1 y no hubo golpe válido del lado izquierdo en ese momento, anota el jugador derecho. Análogamente, si alcanza L5 sin golpe válido, anota el jugador izquierdo.
+3) _Fallo y punto: si la pelota alcanza L1 y no hubo golpe válido del lado izquierdo en ese momento, anota el jugador derecho. Análogamente, si alcanza L5 sin golpe válido, anota el jugador izquierdo._
 
-4) Indicador de punto: al anotar, se parpadea el LED de punto 3 veces del jugador que metió el punto .
+4) _Indicador de punto: al anotar, se parpadea el LED de punto 3 veces del jugador que metió el punto ._
 
-5) Reinicio tras punto: después del parpadeo, la pelota se reinicia en el centro (L3) y comienza a moverse hacia el jugador que metió el punto.
+5) _Reinicio tras punto: después del parpadeo, la pelota se reinicia en el centro (L3) y comienza a moverse hacia el jugador que metió el punto._
 
-6) Inicio del juego: al encender, la pelota inicia en L3 y no se mueve hasta que se presione un boton y debera moverse a la direccion opuesta del boton presionado.
+6) _Inicio del juego: al encender, la pelota inicia en L3 y no se mueve hasta que se presione un boton y debera moverse a la direccion opuesta del boton presionado._
 
 ---
 
