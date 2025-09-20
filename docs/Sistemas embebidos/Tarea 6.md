@@ -77,108 +77,168 @@ _Modificar su pong, para tener dos botones adicionales, que suban y bajen la vel
 ```
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
- 
-#define LED_P1 0
-#define L1     1
-#define L2     2
-#define L3     3
-#define L4     4
-#define L5     5
-#define LED_P2 6
- 
-#define BTN_L  7
-#define BTN_R  8
- 
-volatile bool golpe_L = false;
-volatile bool golpe_R = false;
-int pos = L3;
-int dir = 0;
- 
-void boton_isr(uint gpio, uint32_t events) {
-    if (gpio == BTN_L) {
-        if (pos == L1) golpe_L = true;
-        else if (dir == 0) dir = 1;
-    }
-    else if (gpio == BTN_R) {
-        if (pos == L5) golpe_R = true;
-        else if (dir == 0) dir = -1;
+#include "hardware/timer.h"
+#include <stdlib.h>
+
+
+// --- Pines ---
+#define LED_RED    0
+#define LED_GREEN  1
+#define LED_BLUE   2
+#define LED_YELLOW 3
+
+#define BTN_RED    4
+#define BTN_GREEN  5
+#define BTN_BLUE   6
+#define BTN_YELLOW 7
+
+#define SEG_A 8
+#define SEG_B 9
+#define SEG_C 10
+#define SEG_D 11
+#define SEG_E 12
+#define SEG_F 13
+#define SEG_G 14
+#define SEG_DP 15
+
+#define MAX_RONDA 15
+
+// --- Estado del juego ---
+uint8_t secuencia[MAX_RONDA];  // secuencia de colores (0–3)
+uint8_t ronda_actual = 0;
+
+// Mapeo de LEDs y botones
+const uint8_t leds[4] = {LED_RED, LED_GREEN, LED_BLUE, LED_YELLOW};
+const uint8_t botones[4] = {BTN_RED, BTN_GREEN, BTN_BLUE, BTN_YELLOW};
+
+// Tabla de 7 segmentos (0–F)
+const uint8_t tabla7seg[16] = {
+    0b0111111, // 0
+    0b0000110, // 1
+    0b1011011, // 2
+    0b1001111, // 3
+    0b1100110, // 4
+    0b1101101, // 5
+    0b1111101, // 6
+    0b0000111, // 7
+    0b1111111, // 8
+    0b1101111, // 9
+    0b1110111, // A
+    0b1111100, // b
+    0b0111001, // C
+    0b1011110, // d
+    0b1111001, // E
+    0b1110001  // F
+};
+
+// --- Inicialización ---
+void init_leds() {
+    for(int i=0;i<4;i++) {
+        gpio_init(leds[i]);
+        gpio_set_dir(leds[i], GPIO_OUT);
+        gpio_put(leds[i],0);
     }
 }
- 
-void parpadear_led(int led) {
-    for (int i = 0; i < 3; i++) {
-        gpio_put(led, 1);
-        sleep_ms(200);
-        gpio_put(led, 0);
-        sleep_ms(200);
+
+void init_botones() {
+    for(int i=0;i<4;i++) {
+        gpio_init(botones[i]);
+        gpio_set_dir(botones[i], GPIO_IN);
+        gpio_pull_up(botones[i]);
     }
 }
- 
-void reiniciar_juego(int ganador) {
-    parpadear_led(ganador);
-    pos = L3;
-    gpio_put(L3, 1);
-   
-    if (ganador == LED_P2) {
-        dir = 1;
-    } else if (ganador == LED_P1) {
-        dir = -1;
+
+void init_display() {
+    for(int i=SEG_A;i<=SEG_G;i++){
+        gpio_init(i);
+        gpio_set_dir(i, GPIO_OUT);
+        gpio_put(i,0);
     }
 }
- 
-int main() {
-    stdio_init_all();
- 
-    const uint32_t MASK = (1u<<LED_P1)|(1u<<L1)|(1u<<L2)|(1u<<L3)|(1u<<L4)|(1u<<L5)|(1u<<LED_P2);
-    gpio_init_mask(MASK);
-    gpio_set_dir_masked(MASK, MASK);
- 
-    gpio_init(BTN_L); gpio_set_dir(BTN_L, false); gpio_pull_up(BTN_L);
-    gpio_init(BTN_R); gpio_set_dir(BTN_R, false); gpio_pull_up(BTN_R);
- 
-    gpio_set_irq_enabled_with_callback(BTN_L, GPIO_IRQ_EDGE_FALL, true, &boton_isr);
-    gpio_set_irq_enabled(BTN_R, GPIO_IRQ_EDGE_FALL, true);
- 
-    int pos_anterior = L3;
-    gpio_put(pos_anterior, 1);
- 
-    while (true) {
- 
-        gpio_put(pos_anterior, 0);
-        gpio_put(pos, 1);
-        pos_anterior = pos;
- 
+
+// --- Mostrar en 7 segmentos ---
+void mostrar_hex(uint8_t val){
+    uint8_t mask = tabla7seg[val & 0x0F];
+    for(int i=0;i<7;i++){
+        gpio_put(SEG_A+i, (mask>>i)&1);
+    }
+}
+
+// --- Reproducir secuencia ---
+void reproducir_secuencia(uint8_t longitud){
+    for(int i=0;i<longitud;i++){
+        gpio_put(leds[secuencia[i]],1);
         sleep_ms(500);
- 
-        if (dir == 0) continue;
- 
-        if (pos == L1) {
-            if (golpe_L) {
-                dir = 1;
-                golpe_L = false;
-            } else {
-                reiniciar_juego(LED_P2);
-                continue;
+        gpio_put(leds[secuencia[i]],0);
+        sleep_ms(250);
+    }
+}
+
+// --- Leer entrada del jugador con límite de tiempo ---
+bool leer_entrada(uint8_t ronda){
+    uint32_t inicio = to_us_since_boot(get_absolute_time());
+    uint32_t limite = (ronda + 5)*1000000u; // µs
+
+    for(int i=0;i<ronda;i++){
+        bool acierto=false;
+        while(to_us_since_boot(get_absolute_time()) - inicio < limite){
+            for(int j=0;j<4;j++){
+                if(!gpio_get(botones[j])){ // botón presionado
+                    if(j==secuencia[i]) acierto=true;
+                    sleep_ms(50); // debouncing
+                    while(!gpio_get(botones[j])); // espera a soltar
+                    break;
+                }
             }
-        } else if (pos == L5) {
-            if (golpe_R) {
-                dir = -1;
-                golpe_R = false;
-            } else {
-                reiniciar_juego(LED_P1);
-                continue;
+            if(acierto) break;
+        }
+        if(!acierto){
+            ronda_actual = 0;      // reiniciar marcador
+            mostrar_hex(0);        // mostrar "0" en el display
+            return false;          // Game Over
+        }
+    }
+    return true;
+}
+
+// --- Agregar nuevo color aleatorio ---
+void agregar_color(){
+    secuencia[ronda_actual] = rand()%4;
+    ronda_actual++;
+}
+
+// --- Main ---
+int main(){
+    stdio_init_all();
+    init_leds();
+    init_botones();
+    init_display();
+    mostrar_hex(0); // espera de inicio
+
+    while(true){
+        // esperar botón para iniciar
+        while(gpio_get(BTN_RED) && gpio_get(BTN_GREEN) &&
+              gpio_get(BTN_BLUE) && gpio_get(BTN_YELLOW)){
+            tight_loop_contents();
+        }
+
+        ronda_actual=0;
+        srand(to_us_since_boot(get_absolute_time())); // semilla aleatoria
+        agregar_color(); // primer color
+
+        while(ronda_actual<=MAX_RONDA){
+            mostrar_hex(ronda_actual);
+            reproducir_secuencia(ronda_actual);
+
+            if(!leer_entrada(ronda_actual)){
+                mostrar_hex(ronda_actual); // puntaje final
+                break; // Game Over
             }
+
+            if(ronda_actual==MAX_RONDA) break; // Ronda 15 completada
+
+            agregar_color(); // siguiente ronda
         }
- 
-        if (pos == L2 && golpe_L) {
-            dir = 1;
-            golpe_L = false;
-        } else if (pos == L4 && golpe_R) {
-            dir = -1;
-            golpe_R = false;
-        }
- 
-        pos += dir;
     }
 }
 ```
