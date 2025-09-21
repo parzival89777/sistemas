@@ -62,16 +62,16 @@ int main() {
 ```
 
 3) **Esquematico de conexion:**
-![Esquema de conexión](T4.png)
+![Esquema de conexión](T6E1.png)
 
 4) **Video:**
 
-[Video en youtube](https://youtube.com/shorts/lCiT8hK5L0s)
+[Video en youtube](https://youtu.be/eIVdA_6lP0E)
 
 ### **Ejercicio 2**
 
 1) **Que debe hacer:**
-_Modificar su pong, para tener dos botones adicionales, que suban y bajen la velocidad del juego sin delay._
+_Modificar el "Led pong", para tener dos botones adicionales, que suban y bajen la velocidad del juego sin delay._
 
 2) **Codigo:**
 ```
@@ -244,9 +244,8 @@ int main(){
 ```
 
 3) **Esquematico de conexion:**
-![Esquema de conexión](T4.png)
+![Esquema de conexión](T6E2.png)
 
 4) **Video:**
 
 [Video en youtube](https://youtube.com/shorts/lCiT8hK5L0s)
-
