@@ -12,7 +12,7 @@
  _Sumie Arai Erazo_
 
 - **Curso / Asignatura:** _Proyecto de ingenieria IV_  
-- **Fecha:** _12/09/2025_  
+- **Fecha:** _19/09/2025_  
 - **Descripción breve:** _En este apartado se muestra la tarea de el proyecto "café en cápsula"._
 
 ## Historia del café en cápsula

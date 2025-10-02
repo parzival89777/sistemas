@@ -8,7 +8,7 @@
 - **Fecha:** _17/09/2025_  
 - **Descripción breve:** _En este apartado se muestran 2 ejercicios el uso de 4 alarmas con leds y una actualización del juego "Led Pong"._
 
-### **Ejercicio 1**
+### **Timer de**
 
 1) **Que debe hacer:**
 _Configurar ALARM0..ALARM3 del timer de sistema en modo µs. Cada alarma controla un LED distinto con un periodo propio. ._
@@ -66,9 +66,14 @@ int main() {
 
 4) **Video:**
 
-[Video en youtube](https://youtu.be/eIVdA_6lP0E)
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; margin-bottom: 1em;">
+  <iframe src="https://www.youtube.com/embed/eIVdA_6lP0E"
+          style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+          allowfullscreen>
+  </iframe>
+</div>
 
-### **Ejercicio 2**
+### **Led Pong 2.0**
 
 1) **Que debe hacer:**
 _Modificar el "Led pong", para tener dos botones adicionales, que suban y bajen la velocidad del juego sin delay._
@@ -208,4 +213,9 @@ int main() {
 
 4) **Video:**
 
-[Video en youtube](https://youtu.be/_5k62xp6Z6U)
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; margin-bottom: 1em;">
+  <iframe src="https://www.youtube.com/embed/_5k62xp6Z6U"
+          style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+          allowfullscreen>
+  </iframe>
+</div>

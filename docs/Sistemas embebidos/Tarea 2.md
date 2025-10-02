@@ -39,7 +39,12 @@ int main() {
 ![Esquema de conexión](T2E1.png)
 
 4) **Video:**
-[Video en Youtube](https://youtube.com/shorts/r_rv_efIPUs)
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; margin-bottom: 1em;">
+  <iframe src="https://www.youtube.com/embed/r_rv_efIPUs"
+          style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+          allowfullscreen>
+  </iframe>
+</div>
 
 
 ### **Barrido de 5 Leds**
@@ -80,7 +85,12 @@ int main() {
 ![Esquema de conexión](T2E2.png)
 
 4) **Video:** 
-[Video en Youtube](https://youtu.be/VObCDqgfttQ)
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; margin-bottom: 1em;">
+  <iframe src="https://www.youtube.com/embed/VObCDqgfttQ"
+          style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+          allowfullscreen>
+  </iframe>
+</div>
 
 
 ### **Secuencia en codigo Gray**
@@ -116,4 +126,9 @@ int main() {
 ![Esquema de conexión](T2E3.png)
 
 4) **Video:**
-[Video en Youtube](https://youtube.com/shorts/lCM-7CqCMcQ)
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; margin-bottom: 1em;">
+  <iframe src="https://www.youtube.com/embed/lCM-7CqCMcQ"
+          style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+          allowfullscreen>
+  </iframe>
+</div>

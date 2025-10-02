@@ -262,4 +262,9 @@ int main(){
 
 5) **Video:**
 
-[Video en youtube](https://youtube.com/shorts/YFGwNF2riHw)
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; margin-bottom: 1em;">
+  <iframe src="https://www.youtube.com/embed/YFGwNF2riHw"
+          style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+          allowfullscreen>
+  </iframe>
+</div>

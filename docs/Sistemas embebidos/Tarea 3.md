@@ -112,11 +112,30 @@ int main() {
 
 4) **Video:**
 
-[Compuerta AND](https://youtube.com/shorts/Al4uy3-YmbE?feature=share)
+Compuerta AND
 
-[Compuerta OR](https://youtube.com/shorts/1P4SH7KxhFU)
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; margin-bottom: 1em;">
+  <iframe src="https://www.youtube.com/embed/Al4uy3-YmbE"
+          style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+          allowfullscreen>
+  </iframe>
+</div>
 
-[Compuerta XOR](https://youtube.com/shorts/eoCzc6YgBfI)
+Compuerta OR
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; margin-bottom: 1em;">
+  <iframe src="https://www.youtube.com/embed/1P4SH7KxhFU"
+          style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+          allowfullscreen>
+  </iframe>
+</div>
+
+Compuerta XOR
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; margin-bottom: 1em;">
+  <iframe src="https://www.youtube.com/embed/eoCzc6YgBfI"
+          style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+          allowfullscreen>
+  </iframe>
+</div>
 
 ### **Selector cíclico de 4 LEDs con avance/retroceso**
 
@@ -191,4 +210,10 @@ int main(void) {
 ![Esquema de conexión](T3E2.png)
 
 4) **Video:**
-[Video en youtube](https://youtube.com/shorts/-E7wB8Z-OBw)
+
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; margin-bottom: 1em;">
+  <iframe src="https://www.youtube.com/embed/-E7wB8Z-OBw"
+          style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+          allowfullscreen>
+  </iframe>
+</div>
