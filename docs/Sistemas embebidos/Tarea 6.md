@@ -8,10 +8,10 @@
 - **Fecha:** _17/09/2025_  
 - **Descripción breve:** _En este apartado se muestran 2 ejercicios el uso de 4 alarmas con leds y una actualización del juego "Led Pong"._
 
-### **Timer de**
+### **Timer**
 
 1) **Que debe hacer:**
-_Configurar ALARM0..ALARM3 del timer de sistema en modo µs. Cada alarma controla un LED distinto con un periodo propio. ._
+_Configurar ALARM0..ALARM3 del timer de sistema en modo µs. Cada alarma controla un LED distinto con un periodo propio._
 
 2) **Codigo:**
 ```
