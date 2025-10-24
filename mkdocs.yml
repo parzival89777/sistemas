@@ -28,12 +28,23 @@ theme:
   name: material
   highlightjs: true 
   palette:
-      - scheme: default
-        primary: green
-      
-      
+    # Modo claro
+    - scheme: default
+      primary: green
+      accent: red
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+    # Modo oscuro
+    - scheme: slate
+      primary: green
+      accent: red
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo claro
 
   features:
+  
     - content.code.copy
     - content.tooltips
 extra_css:
