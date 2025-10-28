@@ -348,5 +348,4 @@ int main() {
 
 4) **Fotos:**
 
-![Señal senosoidal](T7E3I1.png)
-![Señal caudrada](T7E3I2.png)
+![Señal senosoidal](T7E312.png)

@@ -44,7 +44,6 @@ theme:
         name: Cambiar a modo claro
 
   features:
-  
     - content.code.copy
     - content.tooltips
 extra_css:
