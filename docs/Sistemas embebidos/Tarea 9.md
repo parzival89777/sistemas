@@ -68,11 +68,59 @@ _Mover un servo usando un potenciometro y un adc que vaya 0-180 grados._
 
 2) **Codigo:**
 ```
-
+#include <iostream>
+#include "pico/stdlib.h"
+#include "hardware/adc.h"
+#include "hardware/pwm.h"
+ 
+using namespace std;
+ 
+#define SERVO_PIN 0    
+#define POT_PIN 26      
+ 
+int main() {
+    stdio_init_all();
+ 
+   //inicializar ADC
+    adc_init();
+    adc_gpio_init(POT_PIN);
+    adc_select_input(0);
+    adc_set_clkdiv(479.0f);          
+    adc_fifo_setup(true, false, 1, false, false);  
+    adc_fifo_drain();                
+    adc_run(true);                    
+ 
+   //inicializar PWM para el servo
+    gpio_set_function(SERVO_PIN, GPIO_FUNC_PWM);
+    uint slice_num = pwm_gpio_to_slice_num(SERVO_PIN); //aplicar configuracion al slice
+ 
+    pwm_set_clkdiv(slice_num, 64.0f);
+    pwm_set_wrap(slice_num, 39062);  
+//ajustar frecuencia del pwm
+    pwm_set_enabled(slice_num, true);
+ 
+    while (true) {
+ 
+        if (adc_fifo_get_level() > 0) { //para ver si hay algo dentro del fifo
+            uint16_t valor_adc = adc_fifo_get();
+ 
+ 
+            float duty = 0.025f + (valor_adc / 4095.0f) * 0.1f;
+ 
+            pwm_set_gpio_level(SERVO_PIN, duty * 39062);
+ 
+ 
+        }
+ 
+        sleep_ms(20);
+    }
+ 
+    return 0;
+}
 ```
 
 3) **Esquematico de conexion:** _Usamos la misma conexión que en el ejercicio 1_
-![Esquema de conexión](T8E2.png)
+![Esquema de conexión](T9E2.png)
 
 4) **Video:**
 

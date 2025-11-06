@@ -5,7 +5,7 @@
 - **Nombre del proyecto:** _UART_  
 - **Equipo / Autor(es):** _Rodrigo Miranda Flores_  
 - **Curso / Asignatura:** _Sistemas embebidos 1_  
-- **Fecha:** _22/09/2025_  
+- **Fecha:** _22/10/2025_  
 - **Descripción breve:** _En este apartado se muestran 2 ejercicios de comunicación UART entre dos Raspberry Pi Pico 2._
 
 ### **Ejercicio 1**
