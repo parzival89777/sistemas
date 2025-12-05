@@ -2,7 +2,7 @@
 
 ## **Introducción**
 
-- **Nombre del proyecto:** _Estacionamiento Sustentable_  
+- **Nombre del proyecto:** _YOLO-PARK_   
 - **Equipo / Autor(es):**
 
  _Rodrigo Miranda Flores_ 
@@ -13,7 +13,7 @@
 
 - **Curso / Asignatura:** _Proyecto de ingenieria IV_  
 - **Fecha:** _25/08/2025_  
-- **Descripción breve:** _En este apartado mostraré los avances sobre nuestro proyecto de un estacionamiento sustentable._
+- **Descripción breve:** _En este apartado mostraré los avances sobre nuestro proyecto ._
 
 ## 2) Objetivo
 

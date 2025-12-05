@@ -2,7 +2,7 @@
 
 ## **Introducción**
 
-- **Nombre del proyecto:** _Estacionamiento Sustentable_  
+- **Nombre del proyecto:** _YOLO-PARK_  
 - **Equipo / Autor(es):**
 
  _Rodrigo Miranda Flores_ 

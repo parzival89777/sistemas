@@ -2,7 +2,7 @@
 
 ## **Introducción**
 
-- **Nombre del proyecto:** _Estacionamiento Sustentable_  
+- **Nombre del proyecto:** _YOLO-PARK_  
 - **Equipo / Autor(es):**
 
  _Rodrigo Miranda Flores_ 
@@ -13,7 +13,7 @@
 
 - **Curso / Asignatura:** _Proyecto de ingenieria IV_  
 - **Fecha:** _26/09/2025_  
-- **Descripción breve:** _En este apartado se muestra nuestro diagrama de Gantt respecto a nuestro proyecto"._
+- **Descripción breve:** _En este apartado se muestra una de nuestras presentaciónes respecto a nuestro proyecto"._
 
 ## Presentación
 <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
