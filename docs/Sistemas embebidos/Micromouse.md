@@ -264,14 +264,10 @@ _Si una tarea tarda demasiado, el robot se vuelve lento o impreciso._
 _El jitter es la variación del tiempo entre cada ciclo de control._
 _Si el jitter es alto, los motores reciben comandos irregulares y el robot avanza con “micro sacudidas”._
 
-- **Uso de CPU:**
-_Medir el %CPU hace ver qué partes del programa consumen más procesamiento._
-_Esto ayuda a decidir si algo debe moverse a interrupciones, PIO o DMA para liberar carga del procesador._
-
-- **Pérdidas FIFO / DMA:**
-_Cuando no se vacian a tiempo los buffers (FIFO) o no configuro bien el DMA, se pierden datos._
-_Esto afecta sensores y telemetría.
-Ajustar prioridades y tamaños de buffer evita esas pérdidas._
+- **Pérdidas FIFO/DMA:**
+_Cuando no se vacian a tiempo el FIFO o no se configura bien el DMA, se pierden datos._
+_Esto afecta sensores y telemetría._
+_Ajustar prioridades y tamaños de buffer evita esas pérdidas._
 
 - **Consumo de energía:**
 _Medir el consumo permitió saber cuánto duran realmente los motores, sensores y la MCU con la batería._
