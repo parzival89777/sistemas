@@ -14,7 +14,6 @@
 
 - _Construir un juego Simón Dice de 4 colores en Raspberry Pi Pico 2._
 
-
 - _La secuencia crece +1 por ronda, de 1 hasta 15._
 
 
