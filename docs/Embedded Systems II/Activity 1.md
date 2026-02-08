@@ -2,7 +2,7 @@
 
 ## **Introducción**
 
-- **Nombre:** _RTOS Tasks_  
+- **Nombre:** _sssssssssssssssssssssii_  
 - **Equipo / Autor(es):** _Rodrigo Miranda Flores, Jose Maria Meneses Avendaño_  
 - **Curso / Asignatura:** _Embedded Systems II_  
 - **Fecha:** _03/01/2026_  
